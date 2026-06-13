@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hela Chapchap – Fast Loans, Clear Credit</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:   #00B67A;
+      --green-d: #008F5F;
+      --green-l: #E6F8F2;
+      --ink:     #0D1F17;
+      --mid:     #3D5247;
+      --subtle:  #8FA99A;
+      --cream:   #F5FAF7;
+      --white:   #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #E0EDE7;
+      padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700; font-size: 1.15rem;
+      color: var(--ink); letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--green); }
+    .nav-badge {
+      font-size: 0.7rem; font-weight: 600;
+      background: var(--green-l); color: var(--green-d);
+      padding: 3px 10px; border-radius: 20px;
+      letter-spacing: 0.04em; text-transform: uppercase;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      flex: 1;
+      background: linear-gradient(160deg, #0D2B1F 0%, #103826 60%, #0A1F14 100%);
+      padding: 80px 5% 90px;
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; position: relative; overflow: hidden;
+    }
+
+    /* subtle grid overlay */
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(0,182,122,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,182,122,0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(0,182,122,0.15);
+      border: 1px solid rgba(0,182,122,0.3);
+      color: #5DFFC5;
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 6px 14px; border-radius: 20px;
+      margin-bottom: 28px; position: relative;
+    }
+    .hero-eyebrow::before {
+      content: '●'; font-size: 0.5rem; animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; } 50% { opacity: 0.3; }
+    }
+
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700; font-size: clamp(2.2rem, 6vw, 4rem);
+      line-height: 1.1; letter-spacing: -0.03em;
+      color: var(--white); margin-bottom: 20px;
+      position: relative; max-width: 680px;
+    }
+    .hero h1 em {
+      font-style: normal; color: var(--green);
+    }
+
+    .hero-sub {
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      color: #7BBFA3; line-height: 1.65;
+      max-width: 500px; margin-bottom: 44px; position: relative;
+    }
+
+    /* CTA button */
+    .cta-wrap { position: relative; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: var(--green);
+      color: var(--white);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600; font-size: 1rem;
+      padding: 16px 32px; border-radius: 14px;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px rgba(0,182,122,0.35);
+      position: relative; overflow: hidden;
+    }
+    .cta-btn::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(120deg, transparent 40%, rgba(255,255,255,0.12) 50%, transparent 60%);
+      transform: translateX(-100%);
+      transition: transform 0.4s;
+    }
+    .cta-btn:hover { background: var(--green-d); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,182,122,0.45); }
+    .cta-btn:hover::after { transform: translateX(100%); }
+    .cta-btn:active { transform: translateY(0); }
+
+    /* Play Store icon */
+    .ps-icon { width: 22px; height: 22px; flex-shrink: 0; }
+
+    .cta-note {
+      font-size: 0.78rem; color: #5A8A75;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .cta-note svg { width: 13px; height: 13px; }
+
+    /* ── STATS STRIP ── */
+    .stats {
+      background: var(--cream);
+      border-top: 1px solid #DCF0E8; border-bottom: 1px solid #DCF0E8;
+      padding: 36px 5%;
+      display: flex; justify-content: center; gap: 0;
+      flex-wrap: wrap;
+    }
+    .stat {
+      flex: 1; min-width: 140px; max-width: 200px;
+      text-align: center; padding: 16px 20px;
+      position: relative;
+    }
+    .stat + .stat::before {
+      content: ''; position: absolute; left: 0; top: 20%; bottom: 20%;
+      width: 1px; background: #C8E8D8;
+    }
+    .stat-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700; font-size: 1.9rem;
+      color: var(--green); letter-spacing: -0.03em;
+    }
+    .stat-label {
+      font-size: 0.78rem; color: var(--subtle);
+      margin-top: 4px; font-weight: 500;
+    }
+
+    /* ── FEATURES ── */
+    .features {
+      padding: 72px 5%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      max-width: 1000px; margin: 0 auto; width: 100%;
+    }
+    .feature-card {
+      background: var(--white);
+      border: 1px solid #DCF0E8;
+      border-radius: 16px; padding: 28px 24px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .feature-card:hover { box-shadow: 0 8px 32px rgba(0,100,60,0.08); transform: translateY(-3px); }
+    .feature-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: var(--green-l);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; margin-bottom: 16px;
+    }
+    .feature-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600; font-size: 1rem;
+      margin-bottom: 8px; color: var(--ink);
+    }
+    .feature-desc { font-size: 0.875rem; color: var(--mid); line-height: 1.6; }
+
+    /* ── BOTTOM CTA ── */
+    .bottom-cta {
+      background: linear-gradient(135deg, #0D2B1F, #103826);
+      padding: 64px 5%;
+      text-align: center;
+    }
+    .bottom-cta h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700; font-size: clamp(1.5rem, 4vw, 2.2rem);
+      color: var(--white); margin-bottom: 12px; letter-spacing: -0.02em;
+    }
+    .bottom-cta p { color: #7BBFA3; margin-bottom: 32px; font-size: 0.95rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--cream);
+      border-top: 1px solid #DCF0E8;
+      padding: 24px 5%;
+      text-align: center;
+      font-size: 0.78rem; color: var(--subtle);
+    }
+    footer a { color: var(--green); text-decoration: none; }
+
+    @media (max-width: 480px) {
+      .stat + .stat::before { display: none; }
+      .stat { border-top: 1px solid #C8E8D8; }
+      .stat:first-child { border-top: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <span class="nav-logo">Hela <span>Chapchap</span></span>
+    <span class="nav-badge">Available on Android</span>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-eyebrow">Now on Google Play</div>
+    <h1>Fast loans.<br><em>Clear credit.</em><br>No surprises.</h1>
+    <p class="hero-sub">Check your CRB status instantly, understand your credit score, and access financial tools—all in one place.</p>
+
+    <div class="cta-wrap">
+      <a class="cta-btn" href="https://play.google.com/store/apps/details?id=com.helakashcheck.crbstatusken" target="_blank" rel="noopener">
+        <!-- Play Store icon -->
+        <svg class="ps-icon" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3.18 1.02C2.76 1.26 2.5 1.71 2.5 2.27v19.46c0 .56.26 1.01.68 1.25l.1.06 10.9-10.9v-.25L3.28.96l-.1.06z"/>
+          <path d="M17.64 15.55l-3.63-3.63v-.26l3.63-3.63.08.05 4.3 2.44c1.23.7 1.23 1.83 0 2.53l-4.3 2.44-.08.06z"/>
+          <path d="M17.72 15.49L14.07 11.8 3.18 22.73c.41.44 1.07.49 1.83.05l12.71-7.29"/>
+          <path d="M17.72 8.51L5.01 1.22C4.25.78 3.59.83 3.18 1.27l10.89 10.89 3.65-3.65z"/>
+        </svg>
+        Download on Google Play
+      </a>
+      <span class="cta-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#5A8A75" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Free to download · Android 5.0+
+      </span>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">10K+</div>
+      <div class="stat-label">Downloads</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">3.9★</div>
+      <div class="stat-label">Play Store rating</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">Instant</div>
+      <div class="stat-label">CRB status check</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">256-bit</div>
+      <div class="stat-label">Data encryption</div>
+    </div>
+  </div>
+
+  <!-- FEATURES INTRO -->
+  <div style="text-align:center; padding: 64px 5% 0; max-width: 600px; margin: 0 auto;">
+    <p style="font-size:0.78rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--green); margin-bottom:10px;">Loan Categories</p>
+    <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:clamp(1.5rem,3.5vw,2rem); letter-spacing:-0.02em; color:var(--ink); margin-bottom:14px;">Affordable loans for every need</h2>
+    <p style="color:var(--mid); font-size:0.92rem; line-height:1.65;">Whether it's an unexpected bill or growing your business, Hela Chapchap offers flexible, low-cost loan options designed for real Kenyans.</p>
+  </div>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="feature-card">
+      <div class="feature-icon">🏥</div>
+      <div class="feature-title">Emergency Loans</div>
+      <div class="feature-desc">Unexpected medical bill or urgent expense? Access quick emergency funds at affordable rates — disbursed fast so you're never caught off guard.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">👤</div>
+      <div class="feature-title">Personal Loans</div>
+      <div class="feature-desc">Need cash for rent, school fees, or household needs? Our personal loans come with low interest rates and flexible repayment terms that fit your budget.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🏪</div>
+      <div class="feature-title">Business Loans</div>
+      <div class="feature-desc">Grow your small business or restock your shop without breaking the bank. Business loans designed for hustlers, traders, and entrepreneurs.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🌾</div>
+      <div class="feature-title">Agricultural Loans</div>
+      <div class="feature-desc">Fund your farm inputs, seeds, or equipment ahead of the season. Tailored repayment schedules aligned with your harvest cycle.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📊</div>
+      <div class="feature-title">Check Your CRB Score</div>
+      <div class="feature-desc">Know your credit standing before you apply. Instantly view your CRB status and get tips to improve your score for better loan terms.</div>
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <section class="bottom-cta">
+    <h2>Take control of your credit today</h2>
+    <p>Join thousands of Kenyans managing their financial health with Hela Chapchap.</p>
+    <a class="cta-btn" href="https://play.google.com/store/apps/details?id=com.helakashcheck.crbstatusken" target="_blank" rel="noopener">
+      <svg class="ps-icon" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3.18 1.02C2.76 1.26 2.5 1.71 2.5 2.27v19.46c0 .56.26 1.01.68 1.25l.1.06 10.9-10.9v-.25L3.28.96l-.1.06z"/>
+        <path d="M17.64 15.55l-3.63-3.63v-.26l3.63-3.63.08.05 4.3 2.44c1.23.7 1.23 1.83 0 2.53l-4.3 2.44-.08.06z"/>
+        <path d="M17.72 15.49L14.07 11.8 3.18 22.73c.41.44 1.07.49 1.83.05l12.71-7.29"/>
+        <path d="M17.72 8.51L5.01 1.22C4.25.78 3.59.83 3.18 1.27l10.89 10.89 3.65-3.65z"/>
+      </svg>
+      Get the App — It's Free
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 Hela Chapchap · <a href="https://www.termsfeed.com/live/7adf8579-62d0-4029-a6a4-08eef6148ceb" target="_blank">Privacy Policy</a>
+  </footer>
+
+</body>
+</html>
